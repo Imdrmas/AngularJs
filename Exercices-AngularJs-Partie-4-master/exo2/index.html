@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exercice 2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+
+      <style>
+        body{
+          background-color: #DDD;
+      padding: 50px;
+        }
+        h2{
+          color: #333;
+          background-color: #FFF;
+          width: 700px;
+          padding: 20px;
+        }
+        table{
+     background-color: #FFF;
+     border: 4px solid black;
+     font-size: 30px;
+     color: #fb04e4;
+        }
+        th{
+          color: red;
+          background: #fff
+        }
+      </style>
+  </head>
+  <body>
+
+    <h1>Exercice deux</h1>
+    <h2>Faire une page HTML permettant d'afficher la liste des voitures et leur couleur du fichier voiture.json.</h2>
+
+    <div ng-app="myApp" ng-controller="orderCtrl">
+
+      <table cellspacing="2px" cellpadding="8px;" rules="all">
+        <thead>
+          <th>Marque</th>
+          <th>Couleur</th>
+        </thead>
+        <tr ng-repeat="car in cars | orderBy : 'marque': 'couleur' ">
+
+          <td>
+            {{car.marque}}
+          </td>
+          <td>
+            {{car.couleur}}
+          </td>
+        </tr>
+      </table>
+    </div>
+
+
+    <script>
+var app = angular.module('myApp', []);
+app.controller('orderCtrl', function($scope) {
+    $scope.cars = [
+      {"marque":"Renault", "couleur":"verte"},
+      {"marque":"Citroen", "couleur":"grise"},
+      {"marque":"Opel", "couleur":"or"},
+      {"marque":"Ferrari", "couleur":"rouge"},
+      {"marque":"Peugeot", "couleur":"bleu"},
+      {"marque":"Nissan", "couleur":"verte"}
+    ];
+});
+
+</script>
+  </body>
+</html>

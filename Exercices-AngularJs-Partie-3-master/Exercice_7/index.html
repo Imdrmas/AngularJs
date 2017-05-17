@@ -1,0 +1,81 @@
+
+
+<!DOCTYPE html>
+<html>
+<title>Exercice 7</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<style>
+  body{
+    background: #333;
+    padding: 4px 60px;
+  }
+  h1{
+    color: #f99292;
+    font-size: 40px;
+  }
+  h2{
+    background: #FFF;
+    color: blue;
+    width: 500px;
+    padding: 20px;
+  }
+  p{
+    color: #73ff73;
+    font-size: 40px;
+  }
+  table{
+    border:solid 4px black; 
+    background: #DDD; 
+    color: #394f58;
+    font-size: 30px;
+    padding: 10px;
+  }
+  thead{
+    color: red;
+  }
+</style>
+<body>
+
+<h1>Exercice Sept</h1>
+<h2>Dans le fichier html fourni, trier le tableau par ordre alphabetique du modele.</h2>
+
+<div ng-app="myApp" ng-controller="orderCtrl">
+
+
+
+  <table cellspacing="2px" cellpadding="8px;" rules="all">
+    <thead>
+      <th>Modele</th>
+      <th>Marque</th>
+    </thead>
+    <tr ng-repeat="phone in phones | orderBy : 'phoneModel' ">
+   
+      <td>
+        {{phone.phoneModel}}
+      </td>
+      <td>
+        {{phone.brand}}
+      </td>
+    </tr>
+  </table>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('orderCtrl', function($scope) {
+    $scope.phones = [
+        {'phoneModel': 'G7',  'brand': 'LG'},
+        {'phoneModel': 'Galaxy S7 Edge', 'brand': 'Samsung'},
+        {'phoneModel': 'iPhone7',  'brand': 'Apple'},
+        {'phoneModel': '50b Helium 4G', 'brand': 'Archos'},
+        {'phoneModel': 'One A9', 'brand': 'HTC'},
+        {'phoneModel': '8', 'brand': 'Nokia'},
+        {'phoneModel': 'Zenphone 2',  'brand': 'Asus'}
+    ];
+});
+
+</script>
+
+
+</body>
+</html>

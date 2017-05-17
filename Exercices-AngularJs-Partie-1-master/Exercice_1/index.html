@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Exrcice 1 </title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+</head>
+<body>
+
+<div class="container" style="margin-left: 200px auto; background: #CCC; padding:40px; color: #a100ff;">
+  <h2> Exrcice un </h2>
+  <p style="margin-left: 200px auto; background: #333; padding:20px; color:#0af597; width: 600px; font-size: 20px;">Faire un formulaire de saisie d'adresse e-mail. Si l'adresse comporte le symbole @, alors une div verte apparait. S'il n'est pas la, une div rouge apparait pour avertir l'utilisateur que sa saisie est incorrecte.</p>
+
+  <form ng-app="myApp" ng-controller="validateCtrl"
+  name="myForm" novalidate>
+
+
+  <p>Email:<br>
+
+  <input type="email" name="email" ng-model="email" required style="width:400px;">
+  <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+  <span ng-show="myForm.email.$error.required">Email est oblige.</span>
+  <span ng-show="myForm.email.$error.email">Invalid email address.</span>
+  </span>
+  </p>
+
+  <p>
+  <input type="submit"
+  ng-disabled="myForm.email.$dirty && myForm.email.$invalid">
+  </p>
+
+  </form>
+</div>
+
+<script>
+
+var app = angular.module('myApp', []);
+app.controller('validateCtrl', function($scope) {
+
+});
+</script>
+
+
+
+
+
+
+</body>
+</html>

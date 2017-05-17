@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<title>exrcice 2</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<style>
+	
+body{
+	background: #333;
+	padding: 40px;
+}
+h1{
+	color: #DDD;
+}
+h2{
+	background: #DDD;
+	color: blue;
+	width: 500px;
+	padding: 20px;
+}
+h3{
+	color: #7070f5;
+	font-size: 40px;
+}
+</style>
+
+<body>
+
+<h1>Exercice Deux</h1>
+<h2>Dans le fichier html fourni, formater le nombre **3.14159265359** en nombre a deux chiffres apres la virgule.</h2>
+
+<div ng-app="myApp" ng-controller="nCtrl">
+
+<h3>{{prize | number : 2}}</h3>
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('nCtrl', function($scope) {
+    $scope.prize = 3.14159265359;
+});
+</script>
+
+
+
+</body>
+</html>

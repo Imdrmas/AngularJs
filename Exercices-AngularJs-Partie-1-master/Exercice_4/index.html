@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <title>Exercice 4</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+
+<style media="screen">
+.container{
+  margin-left: 200px auto;
+  background: #DDD;
+  padding:2px 0 4px 150px;
+  color:#001f80;
+  font-size:20px;}
+  button {
+    background-color: #000;
+    color: #10fbff;
+    font-size: 22px;
+    padding: 8px;
+  }
+#menu{
+  width: 260px;
+  height: 200px;
+  background: #333;
+  padding: 5px 20px;
+  color: #DDD;
+  margin-top: 4px;
+}
+.pp{
+  color: #333;
+  background: #b5b5b5;
+  padding: 6px 20px;
+  width: 600px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+  <h2>Exercice Quatre</h2>
+  <p class="pp"> Ajouter un bouton envoyer. Au clic ajouter en dessous du formulaire le sujet du mail. 
+  Au clic sur un sujet afficher une autre vue avec les autres donnees saisies (nom, email, sujet et texte).</p>
+
+  <form ng-app="myApp" ng-controller="validateCtrl"
+  name="myForm" novalidate>
+
+  <p>Nom:<br>
+  <input type="text" name="user" ng-model="user" required>
+  <span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+  <span ng-show="myForm.user.$error.required">Nom est oblige.</span>
+  </span>
+  </p>
+
+  <p>Prenom:<br>
+  <input type="text" name="lastname" ng-model="lastname" required>
+  <span style="color:red" ng-show="myForm.lastname.$dirty && myForm.lastname.$invalid">
+  <span ng-show="myForm.lastname.$error.required">Prenom est oblige.</span>
+  </span>
+  </p>
+
+
+  <p>Message:<br>
+  <textarea class="form-control" name="hello" ng-model="hello" manLength="10" required>
+    <span style="color:red" ng-show="myForm.textarea.$dirty && myForm.textarea.$invalid ">
+    <span ng-show="myForm.hello.$error.required">votre message est oblige.</span>
+
+
+  </textarea>
+  </p>
+
+
+  <p>Email:<br>
+  <input type="email" name="email" ng-model="email" required>
+  <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+  <span ng-show="myForm.email.$error.required">Email is required.</span>
+  <span ng-show="myForm.email.$error.email">Invalid email address.</span>
+  </span>
+  </p>
+
+
+  <button type="submit"
+  ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||
+  myForm.lastname.$dirty && myForm.lastname.$invalid || myForm.message.$dirty && myForm.message.$invalid || myForm.email.$dirty && myForm.email.$invalid" ng-click="myFunc()"> Envoyer
+    </button>
+     
+  <button ng-show="showMe" style="background-color:#0000ff; color: yellow; font-size: 18px;" ng-click="myFunc1()"> 
+  Voir vos Formations
+ </button>
+
+
+  <div ng-show="showMe1" id="menu" >
+    
+      <p>Nom: {{user}}</p>
+      <p>Prenom: {{lastname}}</p>
+      <p >Message: {{hello}}</p>
+      <p>Email: {{email}}</p>
+      <br>  
+
+  </div>
+
+ 
+  
+
+
+
+  </form>
+</div>
+
+    
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('validateCtrl', function($scope) {
+
+  $scope.user = 'Drmas';
+  $scope.lastname = 'Asmail';
+  $scope.hello = 'Bonjour';
+   $scope.email = 'im.doe@gmail.com';
+
+   $scope.showMe = false;
+   $scope.myFunc = function() {
+       $scope.showMe = !$scope.showMe;
+   }
+
+
+ $scope.showMe1 = false;
+   $scope.myFunc1 = function() {
+       $scope.showMe1 = !$scope.showMe1;
+   }
+
+});
+</script>
+
+</body>
+</html>

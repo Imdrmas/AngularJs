@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exercice 1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+    <script src="script.js"></script>
+
+<style>
+  body{
+    background: #333;
+    padding: 40px;
+  }
+h2{
+  color: #DDD;
+  font-size: 40px;
+}
+h3{
+  background: #FFF;
+  color: blue;
+  padding: 20px;
+  width: 500px;
+}
+h1{
+  color: #ff9e9e;
+}
+</style>
+
+  </head>
+  <body>
+<h2>Exercice Un </h2>
+<h3>Dans le fichier html fourni, convertir le texte de la variable **firstSentence** en majuscules et celui de **secondSentence** en minuscules.</h3>
+
+<div ng-app="myApp" ng-controller="caseCtrl">
+
+<h1>{{txt | uppercase}}</h1>
+<h1 style="color: green;">{{txt2}}</h1>
+
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('caseCtrl', function($scope) {
+    $scope.txt = "Hello World! The text is written in majuscules letters.";
+    $scope.txt2 = "Hello World! The text is written in minuscules letters.";
+});
+</script>
+
+  </body>
+</html>

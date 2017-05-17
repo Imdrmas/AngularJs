@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<title>Exercice 2</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<style>
+.container{
+  background-color: #333;
+  color: #DDD;
+  height: 700px;
+
+}
+h1{
+  color: red;
+  margin-left: 380px
+}
+
+button{
+  padding: 20px 20px;
+  background-color: blue;
+  font-size: 20px;
+  margin-left: 400px;
+  margin-bottom: 10px;
+}
+p{
+  margin-left: 300px;
+  font-size: 30px;
+}
+#menu{
+  color: blue;
+  font-size: 30px;
+  margin-left: 360px;
+  margin-bottom: 30px;
+  background-color: #DDD;
+  width: 300px;
+  padding: 0px 10px 0;
+}
+</style>
+
+<body>
+
+<div class="container">
+
+
+  <div ng-app="myApp" ng-controller="myCtrl">
+<h1>Exercice deux</h1>
+<p style="margin-left: 200px auto; background: #fd9f9f; padding:20px; color:#2b0a0a; width: 600px;">Faire un bouton qui affiche une alerte des que l'on clique dessus.</p>
+  <p>Click the button to show the menu.</p>
+  <button ng-click="myFunc()">Click Me!</button>
+
+  <div ng-show="showMe" id="menu">
+      <h2>Menu:</h2>
+      <div>Pizza</div>
+      <div>Pasta</div>
+      <div>Pesce</div>
+  </div>
+
+  </div>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.showMe = false;
+    $scope.myFunc = function() {
+        $scope.showMe = !$scope.showMe;
+    }
+});
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<title>exercice 2</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<style>
+  body{
+    background-color: #333;
+    color: #DDD;
+    font-size: 30px;
+    padding: 40px;
+  }
+  h1{
+    color:red;
+  }
+</style>
+
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+<h1>Exercice deux</h1>
+
+<h2>My firstName is: {{name}}</h2>
+<h2>my lastName is: {{prenom}}</h2>
+<h2>my age is: {{age}}</h2>
+<h2>my Class is: {{class}}</h2>
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.name = "Drmas";
+    $scope.prenom ="Issam";
+    $scope.age = "27 years";
+    $scope.class ="trmenale";
+});
+</script>
+
+
+
+</body>
